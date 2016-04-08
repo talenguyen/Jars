@@ -1,4 +1,4 @@
-package vn.tale.jars.ui.list;
+package vn.tale.jars.ui.list_user;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,17 +6,19 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import javax.inject.Inject;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import javax.inject.Inject;
-import vn.tale.lcebinding.ErrorView;
-import vn.tale.lcebinding.LceBinding;
-import vn.tale.lcebinding.ShowHideView;
 import vn.tale.jars.App;
 import vn.tale.jars.R;
 import vn.tale.jars.ui.binding.ErrorTextView;
 import vn.tale.jars.ui.binding.ToggleVisibleGone;
+import vn.tale.lcebinding.ErrorView;
+import vn.tale.lcebinding.LceBinding;
+import vn.tale.lcebinding.ShowHideView;
 
 public class ListUserActivity extends AppCompatActivity {
   @Inject UserListAdapter adapter;

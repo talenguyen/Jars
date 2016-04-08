@@ -1,6 +1,7 @@
-package vn.tale.jars.ui.list;
+package vn.tale.jars.ui.list_user;
 
 import java.util.List;
+
 import rx.Observable;
 import vn.tale.jars.model.User;
 

@@ -2,15 +2,17 @@ package vn.tale.jars.di;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
-import javax.inject.Singleton;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import vn.tale.jars.api.GithubApi;
 import vn.tale.jars.model.GsonAdaptersUser;
-import vn.tale.jars.ui.list.UserListApi;
+import vn.tale.jars.ui.list_user.UserListApi;
 
 /**
  * Author giangnguyen. Created on 3/30/16.

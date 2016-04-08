@@ -1,4 +1,4 @@
-package vn.tale.jars.ui.list;
+package vn.tale.jars.ui.list_user;
 
 import dagger.Subcomponent;
 import vn.tale.jars.di.ActivityScope;

@@ -1,9 +1,10 @@
 package vn.tale.jars.di;
 
-import dagger.Component;
 import javax.inject.Singleton;
-import vn.tale.jars.ui.list.UserListComponent;
-import vn.tale.jars.ui.list.UserListModule;
+
+import dagger.Component;
+import vn.tale.jars.ui.list_user.UserListComponent;
+import vn.tale.jars.ui.list_user.UserListModule;
 
 /**
  * Author giangnguyen. Created on 3/29/16.

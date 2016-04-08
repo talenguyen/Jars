@@ -2,17 +2,21 @@ package vn.tale.jars.di;
 
 import android.app.Application;
 import android.os.SystemClock;
+
 import com.google.gson.reflect.TypeToken;
-import dagger.Module;
-import dagger.Provides;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+
 import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
 import rx.Observable;
 import vn.tale.jars.GsonUtils;
 import vn.tale.jars.model.User;
-import vn.tale.jars.ui.list.UserListApi;
+import vn.tale.jars.ui.list_user.UserListApi;
 
 /**
  * Author giangnguyen. Created on 3/29/16.

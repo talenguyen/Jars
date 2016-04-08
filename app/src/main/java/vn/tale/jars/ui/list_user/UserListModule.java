@@ -1,10 +1,10 @@
-package vn.tale.jars.ui.list;
+package vn.tale.jars.ui.list_user;
 
 import dagger.Module;
 import dagger.Provides;
-import vn.tale.lcebinding.LoadingContentError;
 import vn.tale.jars.util.ComputationMainThreadScheduler;
 import vn.tale.jars.util.ThreadScheduler;
+import vn.tale.lcebinding.LoadingContentError;
 
 /**
  * Author giangnguyen. Created on 3/29/16.

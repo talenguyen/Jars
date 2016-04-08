@@ -1,16 +1,18 @@
-package vn.tale.jars.ui.list;
+package vn.tale.jars.ui.list_user;
 
 import com.jakewharton.rxrelay.BehaviorRelay;
 import com.jakewharton.rxrelay.SerializedRelay;
+
 import java.util.List;
+
 import rx.Subscription;
 import vn.tale.androiddataloading.NotEmptyTransformer;
-import vn.tale.lcebinding.LceBindingTransformer;
-import vn.tale.lcebinding.LoadingContentError;
 import vn.tale.jars.Logger;
 import vn.tale.jars.model.User;
 import vn.tale.jars.util.ThreadScheduler;
 import vn.tale.jars.util.ThreadSchedulerTransformer;
+import vn.tale.lcebinding.LceBindingTransformer;
+import vn.tale.lcebinding.LoadingContentError;
 
 /**
  * Author giangnguyen. Created on 3/29/16.
