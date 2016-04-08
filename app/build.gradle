@@ -7,7 +7,7 @@ android {
   buildToolsVersion "23.0.2"
 
   defaultConfig {
-    applicationId "vn.tale.ub"
+    applicationId "vn.tale.jars"
     targetSdkVersion 23
     versionCode 1
     versionName "1.0"
@@ -21,19 +21,19 @@ android {
 
   productFlavors {
     pro {
-      applicationId = "vn.tale.ub"
+      applicationId = "vn.tale.jars"
       minSdkVersion 15
-      resValue "string", "app_name", "UB"
+      resValue "string", "app_name", "Jars"
     }
     dev {
-      applicationId = "vn.tale.ub.dev"
+      applicationId = "vn.tale.jars.dev"
       minSdkVersion 21
-      resValue "string", "app_name", "UB Dev"
+      resValue "string", "app_name", "Jars Dev"
     }
     mock {
-      applicationId = "vn.tale.ub.mock"
+      applicationId = "vn.tale.jars.mock"
       minSdkVersion 21
-      resValue "string", "app_name", "UB Mock"
+      resValue "string", "app_name", "Jars Mock"
     }
   }
 
