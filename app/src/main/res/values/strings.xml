@@ -1,4 +1,5 @@
 <resources>
   <string name="error_empty">No data</string>
   <string name="error_try_again">Error. Try again.</string>
+  <string name="touch_to_retry">\"Touch\" to try again</string>
 </resources>

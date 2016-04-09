@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Necessities",
+    "full_name": "NEC",
+    "rate": "0.55",
+    "amount": "550"
+  },
+  {
+    "name": "FFA",
+    "full_name": "Financial freedom account",
+    "rate": "0.1",
+    "amount": "100"
+  },
+  {
+    "name": "PLAY",
+    "full_name": "PLAY",
+    "rate": "0.1",
+    "amount": "100"
+  },
+  {
+    "name": "LTSS",
+    "full_name": "Long-term savings for spending",
+    "rate": "0.1",
+    "amount": "100"
+  },
+  {
+    "name": "EDU",
+    "full_name": "Education",
+    "rate": "0.1",
+    "amount": "100"
+  },
+  {
+    "name": "GIVE",
+    "full_name": "Give",
+    "rate": "0.05",
+    "amount": "50"
+  }
+]

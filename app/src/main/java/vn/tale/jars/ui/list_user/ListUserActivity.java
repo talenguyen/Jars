@@ -27,7 +27,7 @@ public class ListUserActivity extends AppCompatActivity {
 
   @Bind(R.id.list) RecyclerView recyclerView;
   @Bind(R.id.vProgress) View vLoading;
-  @Bind(R.id.tvError) TextView tvError;
+  @Bind(R.id.tvErrorMessage) TextView tvError;
 
   private ShowHideView loadingView;
   private ErrorView errorView;
@@ -57,7 +57,7 @@ public class ListUserActivity extends AppCompatActivity {
     loadData();
   }
 
-  @OnClick(R.id.tvError)
+  @OnClick(R.id.tvErrorMessage)
   public void loadData() {
     viewModel.load();
   }
