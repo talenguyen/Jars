@@ -9,11 +9,13 @@ import rx.schedulers.Schedulers;
  */
 public class ComputationMainThreadScheduler implements ThreadScheduler {
 
-  @Override public Scheduler subscribeOn() {
+  @Override
+  public Scheduler subscribeOn() {
     return Schedulers.computation();
   }
 
-  @Override public Scheduler observeOn() {
+  @Override
+  public Scheduler observeOn() {
     return AndroidSchedulers.mainThread();
   }
 }

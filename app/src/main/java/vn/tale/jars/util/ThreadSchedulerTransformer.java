@@ -13,7 +13,8 @@ public class ThreadSchedulerTransformer<T> implements Observable.Transformer<T, 
     this.threadScheduler = threadScheduler;
   }
 
-  @Override public Observable<T> call(Observable<T> sourceStream) {
+  @Override
+  public Observable<T> call(Observable<T> sourceStream) {
     return sourceStream.subscribeOn(threadScheduler.subscribeOn())
         .observeOn(threadScheduler.observeOn());
   }

@@ -27,7 +27,7 @@ public class UserListVM {
   private Subscription loadUsersSubscription;
 
   public UserListVM(LoadingContentError loadingContentError, UserListApi apiClient,
-      ThreadScheduler threadScheduler) {
+                    ThreadScheduler threadScheduler) {
     this.loadingContentError = loadingContentError;
     this.apiClient = apiClient;
     this.threadScheduler = threadScheduler;

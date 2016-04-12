@@ -14,18 +14,18 @@ import vn.tale.jars.model.Jar;
  */
 public class JarViewHolder extends RecyclerView.ViewHolder {
 
-    @Bind(R.id.tvName)
-    TextView tvName;
-    @Bind(R.id.tvAmount)
-    TextView tvAmount;
+  @Bind(R.id.tvName)
+  TextView tvName;
+  @Bind(R.id.tvAmount)
+  TextView tvAmount;
 
-    public JarViewHolder(View itemView) {
-        super(itemView);
-        ButterKnife.bind(this, itemView);
-    }
+  public JarViewHolder(View itemView) {
+    super(itemView);
+    ButterKnife.bind(this, itemView);
+  }
 
-    public void bindTo(Jar jar) {
-        tvName.setText(jar.name());
-        tvAmount.setText(jar.amount());
-    }
+  public void bindTo(Jar jar) {
+    tvName.setText(jar.name());
+    tvAmount.setText(jar.amount());
+  }
 }

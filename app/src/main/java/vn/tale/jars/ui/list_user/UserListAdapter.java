@@ -18,13 +18,15 @@ import vn.tale.jars.model.User;
  */
 public class UserListAdapter extends ListAdapter<User, UserListAdapter.UserVH> {
 
-  @Override public UserVH onCreateViewHolder(ViewGroup parent, int viewType) {
+  @Override
+  public UserVH onCreateViewHolder(ViewGroup parent, int viewType) {
     final LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
     final View view = layoutInflater.inflate(R.layout.item_user, parent, false);
     return new UserVH(view);
   }
 
-  @Override public void onBindViewHolder(UserVH holder, int position) {
+  @Override
+  public void onBindViewHolder(UserVH holder, int position) {
     holder.bind(getItem(position));
   }
 

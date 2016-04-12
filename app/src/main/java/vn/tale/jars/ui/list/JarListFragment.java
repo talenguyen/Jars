@@ -26,78 +26,78 @@ import vn.tale.lcebinding.LceBinding;
  */
 public class JarListFragment extends BaseFragment {
 
-    @Bind(R.id.vProgress)
-    View vLoading;
-    @Bind(R.id.vError)
-    View vError;
-    @Bind(R.id.tvErrorMessage)
-    TextView tvErrorMessage;
-    @Bind(R.id.list)
-    RecyclerView recyclerView;
+  @Bind(R.id.vProgress)
+  View vLoading;
+  @Bind(R.id.vError)
+  View vError;
+  @Bind(R.id.tvErrorMessage)
+  TextView tvErrorMessage;
+  @Bind(R.id.list)
+  RecyclerView recyclerView;
 
-    @Inject
-    JarListViewModel viewModel;
+  @Inject
+  JarListViewModel viewModel;
 
-    @Inject
-    JarListAdapter adapter;
+  @Inject
+  JarListAdapter adapter;
 
-    @Inject
-    LceBinding lceBinding;
+  @Inject
+  LceBinding lceBinding;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setupDependencies();
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setupDependencies();
+  }
+
+  @Nullable
+  @Override
+  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    View view = inflater.inflate(R.layout.fragment_list, container, false);
+    ButterKnife.bind(this, view);
+    return view;
+  }
+
+  @Override
+  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    setupBinding();
+
+    setupListView();
+
+    loadData();
+  }
+
+  @OnClick(R.id.vError)
+  public void loadData() {
+    viewModel.load();
+  }
+
+  private void setupBinding() {
+    lceBinding.bind(viewModel.getLce(),
+        new ToggleVisibleGone(vLoading),
+        new ToggleVisibleGone(recyclerView),
+        new ErrorTextView(vError, tvErrorMessage));
+  }
+
+  private void setupListView() {
+    if (recyclerView != null) {
+      recyclerView.setLayoutManager(
+          new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+      recyclerView.setHasFixedSize(true);
+      recyclerView.setAdapter(adapter);
     }
+    viewModel.dataStream().subscribe(adapter::setItems);
+  }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
-        ButterKnife.bind(this, view);
-        return view;
-    }
+  @Override
+  public void onDestroyView() {
+    ButterKnife.unbind(this);
+    lceBinding.unbind();
+    super.onDestroyView();
+  }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        setupBinding();
-
-        setupListView();
-
-        loadData();
-    }
-
-    @OnClick(R.id.vError)
-    public void loadData() {
-        viewModel.load();
-    }
-
-    private void setupBinding() {
-        lceBinding.bind(viewModel.getLce(),
-                new ToggleVisibleGone(vLoading),
-                new ToggleVisibleGone(recyclerView),
-                new ErrorTextView(vError, tvErrorMessage));
-    }
-
-    private void setupListView() {
-        if (recyclerView != null) {
-            recyclerView.setLayoutManager(
-                    new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setAdapter(adapter);
-        }
-        viewModel.dataStream().subscribe(adapter::setItems);
-    }
-
-    @Override
-    public void onDestroyView() {
-        ButterKnife.unbind(this);
-        lceBinding.unbind();
-        super.onDestroyView();
-    }
-
-    private void setupDependencies() {
-        ((JarListActivity) getActivity()).getComponent().inject(this);
-    }
+  private void setupDependencies() {
+    ((JarListActivity) getActivity()).getComponent().inject(this);
+  }
 }

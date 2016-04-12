@@ -12,14 +12,14 @@ import vn.tale.lcebinding.LoadingContentError;
 @Module
 public class JarListModule {
 
-    @Provides
-    public JarListViewModel provideJarListViewModel(LoadingContentError lce,
-                                                    JarRepository jarRepository) {
-        return new JarListViewModel(lce, new ComputationMainThreadScheduler(), jarRepository);
-    }
+  @Provides
+  public JarListViewModel provideJarListViewModel(LoadingContentError lce,
+                                                  JarRepository jarRepository) {
+    return new JarListViewModel(lce, new ComputationMainThreadScheduler(), jarRepository);
+  }
 
-    @Provides
-    public JarListAdapter provideJarListAdapter() {
-        return new JarListAdapter();
-    }
+  @Provides
+  public JarListAdapter provideJarListAdapter() {
+    return new JarListAdapter();
+  }
 }

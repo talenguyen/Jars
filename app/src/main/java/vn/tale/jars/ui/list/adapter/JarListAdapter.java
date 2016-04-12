@@ -13,15 +13,15 @@ import vn.tale.jars.model.Jar;
  */
 public class JarListAdapter extends ListAdapter<Jar, JarViewHolder> {
 
-    @Override
-    public JarViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        final View view = inflater.inflate(R.layout.item_jar, parent, false);
-        return new JarViewHolder(view);
-    }
+  @Override
+  public JarViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+    final View view = inflater.inflate(R.layout.item_jar, parent, false);
+    return new JarViewHolder(view);
+  }
 
-    @Override
-    public void onBindViewHolder(JarViewHolder holder, int position) {
-        holder.bindTo(getItem(position));
-    }
+  @Override
+  public void onBindViewHolder(JarViewHolder holder, int position) {
+    holder.bindTo(getItem(position));
+  }
 }

@@ -8,5 +8,5 @@ import dagger.Subcomponent;
 @Subcomponent(modules = JarListModule.class)
 public interface JarListComponent {
 
-    void inject(JarListFragment fragment);
+  void inject(JarListFragment fragment);
 }

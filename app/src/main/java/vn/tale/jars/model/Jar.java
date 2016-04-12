@@ -11,8 +11,15 @@ import org.immutables.value.Value;
 @Value.Immutable
 @Gson.TypeAdapters
 public interface Jar {
-    @SerializedName("name") String name();
-    @SerializedName("full_name") String fullName();
-    @SerializedName("rate") String rate();
-    @SerializedName("amount") String amount();
+  @SerializedName("name")
+  String name();
+
+  @SerializedName("full_name")
+  String fullName();
+
+  @SerializedName("rate")
+  String rate();
+
+  @SerializedName("amount")
+  String amount();
 }

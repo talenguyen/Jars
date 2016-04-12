@@ -15,23 +15,23 @@ import vn.tale.lcebinding.LoadingContentError;
  */
 public class JarListViewModel extends LceBindingViewModel<List<Jar>> {
 
-    private final ThreadScheduler threadScheduler;
-    private final JarRepository jarRepository;
+  private final ThreadScheduler threadScheduler;
+  private final JarRepository jarRepository;
 
-    public JarListViewModel(LoadingContentError lce,
-                            ThreadScheduler threadScheduler,
-                            JarRepository jarRepository) {
-        super(lce);
-        this.threadScheduler = threadScheduler;
-        this.jarRepository = jarRepository;
-    }
+  public JarListViewModel(LoadingContentError lce,
+                          ThreadScheduler threadScheduler,
+                          JarRepository jarRepository) {
+    super(lce);
+    this.threadScheduler = threadScheduler;
+    this.jarRepository = jarRepository;
+  }
 
-    public void load() {
-        jarRepository.query(null)
-                .compose(new ThreadSchedulerTransformer<>(threadScheduler))
-                .compose(new NotEmptyTransformer<>())
-                .compose(new LceBindingTransformer<>(getLce()))
-                .subscribe(this::setData, Throwable::printStackTrace);
-    }
+  public void load() {
+    jarRepository.query(null)
+        .compose(new ThreadSchedulerTransformer<>(threadScheduler))
+        .compose(new NotEmptyTransformer<>())
+        .compose(new LceBindingTransformer<>(getLce()))
+        .subscribe(this::setData, Throwable::printStackTrace);
+  }
 
 }

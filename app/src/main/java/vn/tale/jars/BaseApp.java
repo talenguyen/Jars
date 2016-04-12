@@ -2,6 +2,7 @@ package vn.tale.jars;
 
 import android.app.Application;
 import android.content.Context;
+
 import vn.tale.jars.di.AppComponent;
 import vn.tale.jars.di.DaggerAppComponent;
 
@@ -15,6 +16,7 @@ public abstract class BaseApp extends Application {
   public static BaseApp get(Context context) {
     return (BaseApp) context.getApplicationContext();
   }
+
   @Override public void onCreate() {
     super.onCreate();
 

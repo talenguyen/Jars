@@ -7,5 +7,5 @@ import vn.tale.jars.ui.list.JarRepository;
  */
 public interface RepositoryModule {
 
-    JarRepository provideJarRepository();
+  JarRepository provideJarRepository();
 }

@@ -6,15 +6,15 @@ import rx.Observable;
 
 public interface Repository<T> {
 
-    void add(T item);
+  void add(T item);
 
-    void add(Iterable<T> items);
+  void add(Iterable<T> items);
 
-    Observable<Boolean> update(T item);
+  Observable<Boolean> update(T item);
 
-    Observable<Boolean> remove(T item);
+  Observable<Boolean> remove(T item);
 
-    Observable<Integer> remove(Specification specification);
+  Observable<Integer> remove(Specification specification);
 
-    Observable<List<T>> query(Specification specification);
+  Observable<List<T>> query(Specification specification);
 }
