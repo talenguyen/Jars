@@ -9,7 +9,8 @@
 
   <include layout="@layout/view_loading" />
 
-  <include layout="@layout/view_error" />
+  <include layout="@layout/view_error"
+      android:id="@+id/vError"/>
 
   <android.support.v7.widget.RecyclerView
       android:id="@+id/list"

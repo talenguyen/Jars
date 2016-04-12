@@ -14,7 +14,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import vn.tale.jars.App;
 import vn.tale.jars.R;
-import vn.tale.jars.ui.binding.ErrorTextView;
 import vn.tale.jars.ui.binding.ToggleVisibleGone;
 import vn.tale.lcebinding.ErrorView;
 import vn.tale.lcebinding.LceBinding;
@@ -47,7 +46,7 @@ public class ListUserActivity extends AppCompatActivity {
   private void setupDependencies() {
     App.get(this).getComponent().plus(new UserListModule()).inject(this);
     loadingView = new ToggleVisibleGone(vLoading);
-    errorView = new ErrorTextView(tvError);
+//    errorView = new ErrorTextView(tvError);
     contentView = new ToggleVisibleGone(recyclerView);
   }
 

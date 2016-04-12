@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import vn.tale.jars.R;
+import vn.tale.jars.base.adapter.ListAdapter;
 import vn.tale.jars.model.User;
-import vn.tale.jars.ui.adapter.ListAdapter;
 
 /**
  * Author giangnguyen. Created on 3/29/16.

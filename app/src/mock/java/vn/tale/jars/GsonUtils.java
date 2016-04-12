@@ -2,11 +2,14 @@ package vn.tale.jars;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
+
+import vn.tale.jars.model.GsonAdaptersJar;
 import vn.tale.jars.model.GsonAdaptersUser;
 
 /**
@@ -18,7 +21,8 @@ public class GsonUtils {
 
   static {
     final GsonBuilder gsonBuilder =
-        new GsonBuilder().registerTypeAdapterFactory(new GsonAdaptersUser());
+            new GsonBuilder().registerTypeAdapterFactory(new GsonAdaptersUser())
+                    .registerTypeAdapterFactory(new GsonAdaptersJar());
     GSON = gsonBuilder.create();
   }
 

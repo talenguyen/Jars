@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextButton" parent="Base.TextAppearance.AppCompat.Button" />
+
+    <style name="TextCaption" parent="Base.TextAppearance.AppCompat.Caption" />
+
+    <style name="TextBody1" parent="Base.TextAppearance.AppCompat.Body1" />
+
+    <style name="TextBody2" parent="Base.TextAppearance.AppCompat.Body2" />
+
+    <style name="TextSubhead" parent="Base.TextAppearance.AppCompat.Subhead" />
+
+    <style name="TextTitle" parent="Base.TextAppearance.AppCompat.Title" />
+
+    <style name="TextHeadline" parent="Base.TextAppearance.AppCompat.Headline" />
+
+    <style name="TextDisplay1" parent="Base.TextAppearance.AppCompat.Display1" />
+
+    <style name="TextDisplay2" parent="Base.TextAppearance.AppCompat.Display2" />
+
+    <style name="TextDisplay3" parent="Base.TextAppearance.AppCompat.Display3" />
+
+    <style name="TextDisplay4" parent="Base.TextAppearance.AppCompat.Display4" />
+
+</resources>
