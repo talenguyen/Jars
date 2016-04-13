@@ -1,5 +1,7 @@
 package vn.tale.jars.di;
 
+import com.pushtorefresh.storio.sqlite.StorIOSQLite;
+
 import vn.tale.jars.ui.list.JarRepository;
 
 /**
@@ -7,5 +9,5 @@ import vn.tale.jars.ui.list.JarRepository;
  */
 public interface RepositoryModule {
 
-  JarRepository provideJarRepository();
+  JarRepository provideJarRepository(StorIOSQLite storIOSQLite);
 }

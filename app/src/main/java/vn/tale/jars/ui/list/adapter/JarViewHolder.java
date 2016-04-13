@@ -26,6 +26,6 @@ public class JarViewHolder extends RecyclerView.ViewHolder {
 
   public void bindTo(Jar jar) {
     tvName.setText(jar.name());
-    tvAmount.setText(jar.amount());
+    tvAmount.setText(String.valueOf(jar.amount()));
   }
 }

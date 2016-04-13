@@ -1,6 +1,7 @@
 package vn.tale.jars.di;
 
 import android.app.Application;
+import android.content.Context;
 
 import java.util.NoSuchElementException;
 
@@ -9,6 +10,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import vn.tale.jars.R;
+import vn.tale.jars.pref.Settings;
 import vn.tale.lcebinding.ErrorMessageProvider;
 
 /**
@@ -23,6 +25,10 @@ import vn.tale.lcebinding.ErrorMessageProvider;
 
   @Provides @Singleton public Application provideApplication() {
     return application;
+  }
+
+  @Provides @Singleton public Settings provideSettings() {
+    return new Settings(application.getSharedPreferences("settings", Context.MODE_PRIVATE));
   }
 
   @Provides @Singleton public ErrorMessageProvider provideErrorMessageProvider() {

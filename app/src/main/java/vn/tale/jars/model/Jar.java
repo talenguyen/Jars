@@ -18,8 +18,8 @@ public interface Jar {
   String fullName();
 
   @SerializedName("rate")
-  String rate();
+  float rate();
 
   @SerializedName("amount")
-  String amount();
+  long amount();
 }

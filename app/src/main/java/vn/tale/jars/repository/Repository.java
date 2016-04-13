@@ -1,14 +1,15 @@
 package vn.tale.jars.repository;
 
+import java.util.Collection;
 import java.util.List;
 
 import rx.Observable;
 
 public interface Repository<T> {
 
-  void add(T item);
+  Observable<Long> add(T item);
 
-  void add(Iterable<T> items);
+  Observable<Integer> add(Collection<T> items);
 
   Observable<Boolean> update(T item);
 
