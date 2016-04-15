@@ -2,13 +2,17 @@ package vn.tale.jars.di;
 
 import android.app.Application;
 import android.os.SystemClock;
+
 import com.google.gson.reflect.TypeToken;
-import dagger.Module;
-import dagger.Provides;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+
 import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
 import rx.Observable;
 import vn.tale.jars.GsonUtils;
 import vn.tale.jars.model.User;
@@ -17,7 +21,7 @@ import vn.tale.jars.ui.list.UserListApi;
 /**
  * Author giangnguyen. Created on 3/29/16.
  */
-@Module public class AppApiModule implements ApiModule {
+@Module public class AppApiModule {
   private final Application application;
 
   public AppApiModule(Application application) {
@@ -31,7 +35,7 @@ import vn.tale.jars.ui.list.UserListApi;
     return GsonUtils.readJsonStream(inputStream, typeToken.getType());
   }
 
-  @Provides @Singleton @Override public UserListApi provideUserListApi() {
+  @Provides @Singleton public UserListApi provideUserListApi() {
     return () -> {
       final long delta = System.currentTimeMillis() % 3;
       System.out.println("delta: " + delta);

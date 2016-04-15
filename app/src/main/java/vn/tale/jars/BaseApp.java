@@ -23,17 +23,17 @@ public class BaseApp extends Application {
   @Override public void onCreate() {
     super.onCreate();
 
-    DaggerAppComponent.Builder builder = prepareAppComponentBuilder();
-    component = builder.build();
+    component = prepareAppComponent();
   }
 
   public AppComponent getComponent() {
     return component;
   }
 
-  @NonNull protected DaggerAppComponent.Builder prepareAppComponentBuilder() {
+  @NonNull protected AppComponent prepareAppComponent() {
     return DaggerAppComponent.builder()
         .appModule(new AppModule(this))
-        .apiModule(new ApiModule());
+        .apiModule(new ApiModule())
+        .build();
   }
 }

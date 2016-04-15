@@ -7,6 +7,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -26,17 +28,26 @@ public class ApiModule {
     return builder.create();
   }
 
-  @Provides @Singleton public GithubApi provideGithubApi(Gson gson) {
+  @Provides @Singleton public GithubApi provideGithubApi(Gson gson, OkHttpClient client) {
     final Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.github.com")
         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(gson))
+        .client(client)
         .build();
 
     return retrofit.create(GithubApi.class);
   }
 
-  @Provides @Singleton public UserListApi provideUserListApi() {
-    return () -> provideGithubApi(provideGson()).getUsers();
+  @Provides @Singleton  public OkHttpClient provideOkHttpClient() {
+    final HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+    loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+    return new OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
+        .build();
+  }
+
+  @Provides @Singleton public UserListApi provideUserListApi(GithubApi githubApi) {
+    return githubApi::getUsers;
   }
 
 }
