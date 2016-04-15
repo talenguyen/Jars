@@ -3,9 +3,6 @@ package vn.tale.jars;
 import android.app.Application;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.NonNull;
-
-import vn.tale.jars.di.ApiModule;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -15,14 +12,13 @@ import javax.inject.Inject;
 
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
-
 import vn.tale.jars.database.DbModule;
 import vn.tale.jars.di.ApiModule;
 import vn.tale.jars.di.AppComponent;
 import vn.tale.jars.di.AppModule;
-import vn.tale.jars.di.AppModule;
-import vn.tale.jars.di.AppRepositoryModule;
 import vn.tale.jars.di.DaggerAppComponent;
+import vn.tale.jars.di.LceBindingModule;
+import vn.tale.jars.di.RepositoryModule;
 import vn.tale.jars.model.ImmutableJar;
 import vn.tale.jars.model.Jar;
 import vn.tale.jars.pref.Settings;
@@ -46,6 +42,8 @@ public class BaseApp extends Application {
     super.onCreate();
 
     component = prepareAppComponent();
+
+    component.inject(this);
 
     setupLogging();
 
@@ -103,16 +101,18 @@ public class BaseApp extends Application {
     }
     return defaultJars;
   }
+
   public AppComponent getComponent() {
     return component;
   }
 
   @NonNull protected AppComponent prepareAppComponent() {
     return DaggerAppComponent.builder()
+        .lceBindingModule(new LceBindingModule())
+        .repositoryModule(new RepositoryModule())
         .appModule(new AppModule(this))
         .apiModule(new ApiModule())
         .dbModule(new DbModule())
-        .appRepositoryModule(new AppRepositoryModule());
         .build();
   }
 }

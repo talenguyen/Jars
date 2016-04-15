@@ -38,26 +38,26 @@ public class MockRepositoryModule {
     return new JarRepository() {
 
       @Override public Observable<Long> add(Jar item) {
-        return null;
+        return Observable.empty();
       }
 
       @Override public Observable<Integer> add(Collection<Jar> items) {
-        return null;
+        return Observable.empty();
       }
 
       @Override
       public Observable<Boolean> update(Jar item) {
-        return null;
+        return Observable.empty();
       }
 
       @Override
       public Observable<Boolean> remove(Jar item) {
-        return null;
+        return Observable.empty();
       }
 
       @Override
       public Observable<Integer> remove(Specification specification) {
-        return null;
+        return Observable.empty();
       }
 
       @Override
