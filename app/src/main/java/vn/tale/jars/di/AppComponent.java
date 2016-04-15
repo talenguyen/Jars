@@ -7,6 +7,17 @@ import vn.tale.jars.BaseApp;
 import vn.tale.jars.database.DbModule;
 import vn.tale.jars.ui.list.JarListComponent;
 import vn.tale.jars.ui.list.JarListModule;
+import vn.tale.jars.ui.list.UserListComponent;
+
+import dagger.Component;
+import vn.tale.jars.ui.list.UserListComponent;
+import vn.tale.jars.ui.list.UserListModule;
+
+import dagger.Component;
+import vn.tale.jars.BaseApp;
+import vn.tale.jars.database.DbModule;
+import vn.tale.jars.ui.list.JarListComponent;
+import vn.tale.jars.ui.list.JarListModule;
 import vn.tale.jars.ui.list_user.UserListComponent;
 import vn.tale.jars.ui.list_user.UserListModule;
 
@@ -17,7 +28,7 @@ import vn.tale.jars.ui.list_user.UserListModule;
 @Component(modules = {
     AppModule.class,
     LceBindingModule.class,
-    AppApiModule.class,
+    ApiModule.class,
     DbModule.class,
     AppRepositoryModule.class,
 })

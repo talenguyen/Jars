@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collection;
 import java.util.List;
 
 import javax.inject.Singleton;
@@ -23,27 +24,25 @@ import vn.tale.jars.ui.list.JarRepository;
  * Created by Giang Nguyen at Tiki on 4/11/16.
  */
 @Module
-public class AppRepositoryModule implements RepositoryModule {
+public class MockRepositoryModule {
 
   private Application application;
 
-  public AppRepositoryModule(Application application) {
+  public MockRepositoryModule(Application application) {
     this.application = application;
   }
 
   @Provides
   @Singleton
-  @Override
   public JarRepository provideJarRepository() {
     return new JarRepository() {
-      @Override
-      public void add(Jar item) {
 
+      @Override public Observable<Long> add(Jar item) {
+        return null;
       }
 
-      @Override
-      public void add(Iterable<Jar> items) {
-
+      @Override public Observable<Integer> add(Collection<Jar> items) {
+        return null;
       }
 
       @Override

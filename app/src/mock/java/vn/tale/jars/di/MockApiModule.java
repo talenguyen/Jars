@@ -21,10 +21,10 @@ import vn.tale.jars.ui.list_user.UserListApi;
 /**
  * Author giangnguyen. Created on 3/29/16.
  */
-@Module public class AppApiModule implements ApiModule {
+@Module public class MockApiModule {
   private final Application application;
 
-  public AppApiModule(Application application) {
+  public MockApiModule(Application application) {
     this.application = application;
   }
 
@@ -35,7 +35,7 @@ import vn.tale.jars.ui.list_user.UserListApi;
     return GsonUtils.readJsonStream(inputStream, typeToken.getType());
   }
 
-  @Provides @Singleton @Override public UserListApi provideUserListApi() {
+  @Provides @Singleton public UserListApi provideUserListApi() {
     return () -> {
       final long delta = System.currentTimeMillis() % 3;
       System.out.println("delta: " + delta);
