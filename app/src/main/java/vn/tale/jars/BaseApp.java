@@ -2,19 +2,24 @@ package vn.tale.jars;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.annotation.NonNull;
+
+import vn.tale.jars.di.ApiModule;
 import vn.tale.jars.di.AppComponent;
+import vn.tale.jars.di.AppModule;
 import vn.tale.jars.di.DaggerAppComponent;
 
 /**
  * Author giangnguyen. Created on 4/1/16.
  */
-public abstract class BaseApp extends Application {
+public class BaseApp extends Application {
 
   private AppComponent component;
 
   public static BaseApp get(Context context) {
     return (BaseApp) context.getApplicationContext();
   }
+
   @Override public void onCreate() {
     super.onCreate();
 
@@ -26,6 +31,9 @@ public abstract class BaseApp extends Application {
     return component;
   }
 
-
-  protected abstract DaggerAppComponent.Builder prepareAppComponentBuilder();
+  @NonNull protected DaggerAppComponent.Builder prepareAppComponentBuilder() {
+    return DaggerAppComponent.builder()
+        .appModule(new AppModule(this))
+        .apiModule(new ApiModule());
+  }
 }

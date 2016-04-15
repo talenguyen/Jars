@@ -2,7 +2,6 @@ package vn.tale.jars;
 
 import android.support.annotation.NonNull;
 
-import vn.tale.jars.di.AppApiModule;
 import vn.tale.jars.di.AppModule;
 import vn.tale.jars.di.DaggerAppComponent;
 
