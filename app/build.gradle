@@ -114,4 +114,5 @@ dependencies {
 
   // We recommend to use Android Gradle Apt plugin: https://bitbucket.org/hvisser/android-apt
   apt 'com.pushtorefresh.storio:sqlite-annotations-processor:1.8.0'
+  compile 'com.jakewharton.timber:timber:4.1.2'
 }
