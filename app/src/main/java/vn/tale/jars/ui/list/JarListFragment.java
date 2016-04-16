@@ -20,6 +20,7 @@ import vn.tale.jars.ui.binding.ErrorTextView;
 import vn.tale.jars.ui.binding.ToggleVisibleGone;
 import vn.tale.jars.ui.list.adapter.JarListAdapter;
 import vn.tale.lcebinding.LceBinding;
+import vn.tale.lcebinding.LoadingContentError;
 
 /**
  * Created by Giang Nguyen at Tiki on 4/11/16.
@@ -43,6 +44,8 @@ public class JarListFragment extends BaseFragment {
 
   @Inject
   LceBinding lceBinding;
+
+  @Inject LoadingContentError lce;
 
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,11 +80,11 @@ public class JarListFragment extends BaseFragment {
 
   @OnClick(R.id.vError)
   public void loadData() {
-    viewModel.load();
+    viewModel.load(lce);
   }
 
   private void setupBinding() {
-    lceBinding.bind(viewModel.getLce(),
+    lceBinding.bind(lce,
         new ToggleVisibleGone(vLoading),
         new ToggleVisibleGone(recyclerView),
         new ErrorTextView(vError, tvErrorMessage));

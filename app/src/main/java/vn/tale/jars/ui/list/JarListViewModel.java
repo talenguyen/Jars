@@ -18,19 +18,17 @@ public class JarListViewModel extends LceBindingViewModel<List<Jar>> {
   private final ThreadScheduler threadScheduler;
   private final JarRepository jarRepository;
 
-  public JarListViewModel(LoadingContentError lce,
-                          ThreadScheduler threadScheduler,
+  public JarListViewModel(ThreadScheduler threadScheduler,
                           JarRepository jarRepository) {
-    super(lce);
     this.threadScheduler = threadScheduler;
     this.jarRepository = jarRepository;
   }
 
-  public void load() {
+  public void load(LoadingContentError lce) {
     jarRepository.query(null)
         .compose(new ThreadSchedulerTransformer<>(threadScheduler))
         .compose(new NotEmptyTransformer<>())
-        .compose(new LceBindingTransformer<>(getLce()))
+        .compose(new LceBindingTransformer<>(lce))
         .subscribe(this::setData, Throwable::printStackTrace);
   }
 

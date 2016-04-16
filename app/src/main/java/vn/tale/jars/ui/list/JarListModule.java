@@ -15,7 +15,7 @@ public class JarListModule {
   @Provides
   public JarListViewModel provideJarListViewModel(LoadingContentError lce,
                                                   JarRepository jarRepository) {
-    return new JarListViewModel(lce, new ComputationMainThreadScheduler(), jarRepository);
+    return new JarListViewModel(new ComputationMainThreadScheduler(), jarRepository);
   }
 
   @Provides
