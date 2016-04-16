@@ -68,6 +68,13 @@ public class JarListFragment extends BaseFragment {
     loadData();
   }
 
+  @Override
+  public void onDestroyView() {
+    ButterKnife.unbind(this);
+    lceBinding.unbind();
+    super.onDestroyView();
+  }
+
   @OnClick(R.id.vError)
   public void loadData() {
     viewModel.load();
@@ -88,13 +95,6 @@ public class JarListFragment extends BaseFragment {
       recyclerView.setAdapter(adapter);
     }
     viewModel.dataStream().subscribe(adapter::setItems);
-  }
-
-  @Override
-  public void onDestroyView() {
-    ButterKnife.unbind(this);
-    lceBinding.unbind();
-    super.onDestroyView();
   }
 
   private void setupDependencies() {

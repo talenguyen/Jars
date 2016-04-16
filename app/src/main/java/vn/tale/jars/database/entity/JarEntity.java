@@ -1,7 +1,6 @@
 package vn.tale.jars.database.entity;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import com.pushtorefresh.storio.sqlite.annotations.StorIOSQLiteColumn;
 import com.pushtorefresh.storio.sqlite.annotations.StorIOSQLiteType;
@@ -14,9 +13,6 @@ import vn.tale.jars.model.Jar;
  */
 @StorIOSQLiteType(table = JarTable.TABLE)
 public class JarEntity implements Jar {
-
-  @Nullable @StorIOSQLiteColumn(name = JarTable.COLUMN_ID, key = true)
-  long id;
 
   @NonNull @StorIOSQLiteColumn(name = JarTable.COLUMN_NAME, key = true)
   String name;

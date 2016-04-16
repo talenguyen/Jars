@@ -1,12 +1,9 @@
 package vn.tale.jars.di;
 
 import android.app.Application;
-import android.os.SystemClock;
 
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,10 +12,10 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import rx.Observable;
-import vn.tale.jars.GsonUtils;
 import vn.tale.jars.model.Jar;
 import vn.tale.jars.repository.Specification;
 import vn.tale.jars.ui.list.JarRepository;
+import vn.tale.jars.util.AssertsDataSource;
 
 /**
  * Created by Giang Nguyen at Tiki on 4/11/16.
@@ -34,7 +31,7 @@ public class MockRepositoryModule {
 
   @Provides
   @Singleton
-  public JarRepository provideJarRepository() {
+  public JarRepository provideJarRepository(AssertsDataSource assertsDataSource) {
     return new JarRepository() {
 
       @Override public Observable<Long> add(Jar item) {
@@ -69,16 +66,10 @@ public class MockRepositoryModule {
         } else if (delta == 1) {
           return Observable.empty();
         }
-        return Observable.fromCallable(() -> getMockJars(application));
+        final TypeToken<List<Jar>> typeToken = new TypeToken<List<Jar>>() {
+        };
+        return assertsDataSource.read("jars.json", typeToken.getType());
       }
     };
-  }
-
-  private List<Jar> getMockJars(Application application) throws IOException {
-    SystemClock.sleep(1500);
-    final InputStream inputStream = application.getAssets().open("jars.json");
-    final TypeToken<List<Jar>> typeToken = new TypeToken<List<Jar>>() {
-    };
-    return GsonUtils.readJsonStream(inputStream, typeToken.getType());
   }
 }

@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
  */
 public class JarTable {
   public static final String TABLE = "jar";
-  public static final String COLUMN_ID = "_id";
   public static final String COLUMN_NAME = "name";
   public static final String COLUMN_FULL_NAME = "full_name";
   public static final String COLUMN_RATE = "rate";
@@ -18,7 +17,6 @@ public class JarTable {
   @NonNull
   public static String getCreateTableQuery() {
     return "CREATE TABLE " + TABLE + "("
-        + COLUMN_ID + " INTEGER NOT NULL PRIMARY KEY, "
         + COLUMN_NAME + " TEXT NOT NULL UNIQUE, "
         + COLUMN_FULL_NAME + " TEXT, "
         + COLUMN_RATE + " REAL, "

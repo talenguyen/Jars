@@ -3,6 +3,9 @@ package vn.tale.jars.di;
 import android.app.Application;
 import android.content.Context;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.NoSuchElementException;
 
 import javax.inject.Singleton;
@@ -10,7 +13,10 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import vn.tale.jars.R;
+import vn.tale.jars.model.GsonAdaptersJar;
+import vn.tale.jars.model.GsonAdaptersUser;
 import vn.tale.jars.pref.Settings;
+import vn.tale.jars.util.AssertsDataSource;
 import vn.tale.lcebinding.ErrorMessageProvider;
 
 /**
@@ -38,6 +44,17 @@ import vn.tale.lcebinding.ErrorMessageProvider;
       }
       return application.getString(R.string.error_try_again);
     };
+  }
+
+  @Provides @Singleton public Gson provideGson() {
+    final GsonBuilder builder = new GsonBuilder();
+    builder.registerTypeAdapterFactory(new GsonAdaptersUser());
+    builder.registerTypeAdapterFactory(new GsonAdaptersJar());
+    return builder.create();
+  }
+
+  @Provides @Singleton public AssertsDataSource provideAssertsDataSource(Application application, Gson gson) {
+    return new AssertsDataSource(application, gson);
   }
 
 }

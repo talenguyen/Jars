@@ -1,7 +1,6 @@
 package vn.tale.jars.di;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import javax.inject.Singleton;
 
@@ -13,7 +12,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import vn.tale.jars.api.GithubApi;
-import vn.tale.jars.model.GsonAdaptersUser;
 import vn.tale.jars.ui.list_user.UserListApi;
 
 /**
@@ -21,12 +19,6 @@ import vn.tale.jars.ui.list_user.UserListApi;
  */
 @Module
 public class ApiModule {
-
-  @Provides @Singleton public Gson provideGson() {
-    final GsonBuilder builder = new GsonBuilder();
-    builder.registerTypeAdapterFactory(new GsonAdaptersUser());
-    return builder.create();
-  }
 
   @Provides @Singleton public GithubApi provideGithubApi(Gson gson, OkHttpClient client) {
     final Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.github.com")
